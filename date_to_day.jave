@@ -1,0 +1,23 @@
+//to convert a date into its corresponding day
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String month = in.next();
+        String day = in.next();
+        String year = in.next();
+        int n_m = Integer.parseInt(month);
+        int n_d = Integer.parseInt(day);
+        int n_y = Integer.parseInt(year);
+        int n = (n_m + n_d + n_y + n_y/100 + n_y/4) % 7;
+        String[] D = {"SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"};
+        System.out.print(D[n]);
+    }
+}
