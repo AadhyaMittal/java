@@ -1,0 +1,66 @@
+//To implement MERGE SORT in java
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package uca_datastructures;
+
+import java.util.*;
+
+/**
+ *
+ * @author AADYA
+ */
+public class quick_sort 
+{
+    private static void quick_sort(int arr[],int beg,int end)
+    {
+        int pivot,j,temp,i;
+        if(beg < end)
+         {
+            pivot = beg;
+            i = beg;
+            j = end;
+            while(i < j)
+            {
+                while(arr[i] <= arr[pivot] && i < end)
+                {
+                    i++;
+                }
+                while(arr[j] > arr[pivot])
+                {
+                    j--;
+                }
+                if(i < j)
+                {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }  
+            temp = arr[pivot];
+            arr[pivot] = arr[j];
+            arr[j] = temp;
+            quick_sort(arr,beg,j-1);
+            quick_sort(arr,j+1,end);
+        }
+    }   
+    public static void main(String args[])
+    {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int arr[] = new int[n];
+        int i;
+        for(i = 0; i < n; i++)
+        {
+            arr[i] = scan.nextInt();
+        }
+        quick_sort(arr, 0, n-1);
+        for(i = 0; i < n; i++)
+        {
+            System.out.println(arr[i]);
+        }
+    }
+}
